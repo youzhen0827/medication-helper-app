@@ -43,7 +43,7 @@ class QueryActivity : AppCompatActivity() {
     private var adapter: SimpleCursorAdapter? = null
     private var recordsCursor: Cursor? = null
 
-    // ── 目前查詢的日期（空字串代表查詢全部） ─────────────────────────────────
+    // ── 目前查詢的日期 ─────────────────────────────────
     private var currentDate = ""
 
     protected override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +73,7 @@ class QueryActivity : AppCompatActivity() {
         tvQueryDate!!.setText("查詢日期：" + currentDate)
         loadRecords(currentDate) // 載入今天的記錄
 
-        // ── 選擇日期按鈕：開啟 DatePickerDialog ────────────────────────────────
+        // ── 選擇日期按鈕 ────────────────────────────────
         btnPickDate!!.setOnClickListener(View.OnClickListener { v: View? ->
             val c = Calendar.getInstance()
             val dialog = DatePickerDialog(
@@ -95,7 +95,7 @@ class QueryActivity : AppCompatActivity() {
 
         // ── 查詢全部按鈕 ────────────────────────────────────────────────────────
         btnQueryAll!!.setOnClickListener(View.OnClickListener { v: View? ->
-            currentDate = "" // 空字串代表不篩選日期
+            currentDate = "" 
             tvQueryDate!!.setText("查詢日期：全部")
             loadRecords(null) // 傳 null 表示查詢全部
         })
