@@ -28,7 +28,7 @@ import java.util.Locale
  */
 class AddRecordActivity : AppCompatActivity() {
     // ── UI 元件 ──────────────────────────────────────────────────────────────────
-    private var spMedicine: Spinner? = null // 藥物選擇器（從資料庫動態載入）
+    private var spMedicine: Spinner? = null // 藥物選擇器
     private var tvDate: TextView? = null // 顯示所選日期
     private var spTimeSlot: Spinner? = null // 時段選擇器（早/午/晚/睡前）
     private var spIsTaken: Spinner? = null // 是否服用選擇器
@@ -78,7 +78,7 @@ class AddRecordActivity : AppCompatActivity() {
         )
         tvDate!!.setText(selectedDate)
 
-        // ── 設定選擇日期按鈕事件（開啟 DatePickerDialog） ──────────────────────
+        // 設定選擇日期按鈕事件
         btnPickDate!!.setOnClickListener(View.OnClickListener { v: View? ->
             val c = Calendar.getInstance()
             // 建立日期選擇對話方塊，預設顯示今天
@@ -151,7 +151,7 @@ class AddRecordActivity : AppCompatActivity() {
         // ── 讀取使用者選擇/輸入 ──
         val selectedIndex = spMedicine!!.getSelectedItemPosition()
         val medicineId: Int = medicineIds.get(selectedIndex)!!
-        // 取得純藥物名稱（去除劑量顯示部分）
+        // 取得純藥物名稱
         val fullName = medicineNames.get(selectedIndex)
         val medicineName: String? = fullName.split("  ".toRegex()).dropLastWhile { it.isEmpty() }
             .toTypedArray()[0] // 藥名在第一個「  」之前
@@ -160,13 +160,13 @@ class AddRecordActivity : AppCompatActivity() {
         val note = etNote!!.getText().toString().trim { it <= ' ' }
         val isTaken = if (isTakenStr == "已服用") 1 else 0
 
-        // ── 驗證日期 ────────────────────────────────────────────────────────────
+        // 驗證日期 
         if (selectedDate.isEmpty()) {
             Toast.makeText(this, "請選擇服用日期", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // ── 寫入資料庫 ──────────────────────────────────────────────────────────
+        // 寫入資料庫 
         val result: Long = dbHelper?.insertRecord(
             medicineId, medicineName, selectedDate, timeSlot, isTaken, note
         ) ?: -1L
