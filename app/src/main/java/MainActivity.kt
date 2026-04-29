@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     // ── 資料庫輔助物件 ──────────────────────────────────────────────────────────
     private var dbHelper: DatabaseHelper? = null
 
-    // ── Cursor Adapter（將資料庫 Cursor 資料顯示於 ListView） ─────────────────
+    // ── Cursor Adapter ─────────────────
     private var adapter: SimpleCursorAdapter? = null
     private var medicinesCursor: Cursor? = null
 
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity() {
 
     protected override fun onDestroy() {
         super.onDestroy()
-        // Activity 銷毀時關閉 Cursor 與資料庫，釋放資源
+
         if (medicinesCursor != null && !medicinesCursor!!.isClosed()) {
             medicinesCursor!!.close()
         }
