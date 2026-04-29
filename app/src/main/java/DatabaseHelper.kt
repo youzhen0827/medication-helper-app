@@ -118,7 +118,7 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, nul
         var count = 0
         if (cursor.moveToFirst()) count = cursor.getInt(0)
         cursor.close()
-        // 不要在這裡關閉 db，交給 SQLiteOpenHelper 管理
+
         return count
     }
 
