@@ -2,7 +2,7 @@
 
 智慧型手機程式設計課程作業，以 Kotlin + SQLite 開發的 Android 藥物管理 App，提供藥物清單管理、服用紀錄新增與依日期查詢功能，與智慧藥盒專題的行動端應用相互呼應。
 
-🎬 **[Demo 影片]([https://drive.google.com/file/d/1o5LswOKnXzaOWebQDRYAxjgphwIlRq1/view?usp=sharing](https://drive.google.com/file/d/1o5LswOKnXzaOWebQDRYAx-jgphwIlRq1/view))**
+🎬 **[Demo 影片]([https://drive.google.com/file/d/1o5LswOKnXzaOWebQDRYAxjgphwIlRq1/view?usp=sharing])**
 
 ---
 
